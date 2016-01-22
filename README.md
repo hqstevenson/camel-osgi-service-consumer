@@ -1,0 +1,1 @@
+# camel-osgi-service-consumer
