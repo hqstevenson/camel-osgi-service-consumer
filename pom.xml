@@ -17,6 +17,7 @@
         <module>service-one</module>
         <module>service-two</module>
         <module>bean-one</module>
+        <module>blueprint-consumer</module>
         <module>camel-builders</module>
         <module>blueprint-route</module>
         <module>java-route</module>
@@ -26,7 +27,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <camel-version>2.17-SNAPSHOT</camel-version>
+        <camel-version>2.16.1</camel-version>
         <slf4j-version>1.7.13</slf4j-version>
         <junit-version>4.11</junit-version>
         <maven-bundle-plugin-version>3.0.1</maven-bundle-plugin-version>

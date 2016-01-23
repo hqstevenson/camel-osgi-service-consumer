@@ -21,6 +21,9 @@
     <camelContext id="blueprint-context" xmlns="http://camel.apache.org/schema/blueprint">
         <route id="blueprint-route">
             <from uri="timer://blueprint-route"/>
+            <setBody>
+                <constant>Blueprint Route</constant>
+            </setBody>
             <log message="Calling Service via Reference: ${body}" />
             <bean ref="echo-service-one" />
             <log message="Calling Service via Bean: ${body}"/>
