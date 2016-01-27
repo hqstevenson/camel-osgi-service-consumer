@@ -1,21 +1,24 @@
 # camel-osgi-service-consumer
 
-Basic Blueprint Service Reference Issue
-
+# Supporting services and beans
 install -s mvn:com.pronoia.test.osgi/service-interface/1.0.0-SNAPSHOT mvn:com.pronoia.test.osgi/service-one/1.0.0-SNAPSHOT mvn:com.pronoia.test.osgi/service-two/1.0.0-SNAPSHOT mvn:com.pronoia.test.osgi/bean-one/1.0.0-SNAPSHOT
-install -s mvn:com.pronoia.test.osgi/blueprint-consumer/1.0.0-SNAPSHOT 
 
-This will give the expected ServiceUnavailableException
-stop service-one
-
-This will NOT give the ServiceUnavaliableException - act's like a proxy was not injected
-stop service-two
-
-Camel Service Reference Issue
-install -s mvn:com.pronoia.test.osgi/service-interface/1.0.0-SNAPSHOT mvn:com.pronoia.test.osgi/service-one/1.0.0-SNAPSHOT mvn:com.pronoia.test.osgi/service-two/1.0.0-SNAPSHOT mvn:com.pronoia.test.osgi/bean-one/1.0.0-SNAPSHOT
-install -s mvn:com.pronoia.test.camel/camel-builders/1.0.0-SNAPSHOT
-
-These bundles use the above services
+# This route works as expected
 install mvn:com.pronoia.test.camel/blueprint-route/1.0.0-SNAPSHOT 
-install mvn:com.pronoia.test.osgi/java-route/1.0.0-SNAPSHOT
+
+# This route works as expected
+install -s mvn:com.pronoia.test.camel.route/bean-component-java-route/1.0.0-SNAPSHOT
+
+# This route works as expected
+install -s mvn:com.pronoia.test.camel.route/multiple-bean-component-java-route/1.0.0-SNAPSHOT
+
+# This route does not work as expected
+install -s mvn:com.pronoia.test.camel.route/multiple-service-java-route/1.0.0-SNAPSHOT
+
+# This route does not work as expected
+install -s mvn:com.pronoia.test.camel.route/simple-java-route/1.0.0-SNAPSHOT
+
+# This route works as expected
+install -s mvn:com.pronoia.test.camel/camel-builders/1.0.0-SNAPSHOT mvn:com.pronoia.test.camel/java-consumer/1.0.0-SNAPSHOT
+
 

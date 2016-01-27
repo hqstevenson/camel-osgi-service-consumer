@@ -18,9 +18,10 @@
         <module>service-two</module>
         <module>bean-one</module>
         <module>blueprint-consumer</module>
-        <module>camel-builders</module>
         <module>blueprint-route</module>
-        <module>java-route</module>
+        <module>java-routes</module>
+        <module>camel-builders</module>
+        <module>java-consumer</module>
     </modules>
 
 

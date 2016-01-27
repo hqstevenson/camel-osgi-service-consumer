@@ -10,24 +10,16 @@
         <property name="timeout" value="30"/>
     </bean>
 
-    <reference id="echo-service-one" interface="com.pronoia.test.osgi.service.Echo" filter="instance=one" timeout="2000" />
-
-    <reference id="echo-service-two" interface="com.pronoia.test.osgi.service.Echo" filter="instance=two" timeout="2000" />
-
-    <bean id="blueprint-bean" class="com.pronoia.test.osgi.bean.BeanOne" scope="prototype">
-        <property name="echoService" ref="echo-service-two" />
-    </bean>
+    <reference id="echo-service" interface="com.pronoia.test.osgi.service.Echo" filter="instance=one" timeout="2000" />
 
     <camelContext id="blueprint-context" xmlns="http://camel.apache.org/schema/blueprint">
         <route id="blueprint-route">
-            <from uri="timer://blueprint-route"/>
+            <from uri="timer://blueprint-route?period=5000"/>
             <setBody>
-                <constant>Blueprint Route</constant>
+                <exchangeProperty>CamelTimerFiredTime</exchangeProperty>
             </setBody>
             <log message="Calling Service via Reference: ${body}" />
-            <bean ref="echo-service-one" />
-            <log message="Calling Service via Bean: ${body}"/>
-            <bean ref="blueprint-bean" />
+            <bean ref="echo-service" />
             <log message="Finished"/>
             <to uri="mock://result"/>
         </route>

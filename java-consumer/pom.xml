@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>com.pronoia.test.camel</groupId>
-    <artifactId>blueprint-route</artifactId>
+    <artifactId>java-consumer</artifactId>
     <packaging>bundle</packaging>
 
-    <name>Camel Blueprint Route</name>
+    <name>Java Consumer</name>
 
     <dependencies>
         <dependency>
@@ -28,10 +28,14 @@
             <artifactId>service-interface</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.pronoia.test.osgi</groupId>
             <artifactId>bean-one</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.pronoia.test.camel</groupId>
+            <artifactId>camel-builders</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 
@@ -39,7 +43,6 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-blueprint</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -56,9 +59,11 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
+                        <Export-Package/>
                         <Import-Package>
                             com.pronoia.test.osgi.service,
                             com.pronoia.test.osgi.bean,
+                            com.pronoia.test.camel.builder,
                             *
                         </Import-Package>
                     </instructions>

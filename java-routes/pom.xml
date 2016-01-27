@@ -12,10 +12,17 @@
     </parent>
 
     <groupId>com.pronoia.test.camel</groupId>
-    <artifactId>blueprint-route</artifactId>
-    <packaging>bundle</packaging>
+    <artifactId>java-routes</artifactId>
+    <packaging>pom</packaging>
 
-    <name>Camel Blueprint Route</name>
+    <name>Camel Java Routes Deployed with Blueprint</name>
+
+    <modules>
+        <module>simple-java-route</module>
+        <module>bean-component-java-route</module>
+        <module>multiple-service-java-route</module>
+        <module>multiple-bean-component-java-route</module>
+    </modules>
 
     <dependencies>
         <dependency>
@@ -57,6 +64,7 @@
                 <configuration>
                     <instructions>
                         <Import-Package>
+                            org.osgi.service.blueprint,
                             com.pronoia.test.osgi.service,
                             com.pronoia.test.osgi.bean,
                             *

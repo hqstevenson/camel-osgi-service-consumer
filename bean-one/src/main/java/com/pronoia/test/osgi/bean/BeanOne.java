@@ -8,13 +8,15 @@ import org.slf4j.LoggerFactory;
 public class BeanOne {
     Logger log = LoggerFactory.getLogger(this.getClass());
 
-   Echo echoService;
+    Echo echoService;
 
     public String execute(String body) {
         log.info( "{}:{} -> execute", this.getClass().getSimpleName(), this.hashCode() );
 
         if ( null == echoService) {
             log.warn( "No service oject available");
+        } else {
+            echoService.execute(body);
         }
 
         return body;
