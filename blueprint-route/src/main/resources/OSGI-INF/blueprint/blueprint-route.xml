@@ -10,7 +10,8 @@
         <property name="timeout" value="30"/>
     </bean>
 
-    <reference id="echo-service" interface="com.pronoia.test.osgi.service.Echo" filter="instance=one" timeout="2000" />
+    <reference id="echo-service" interface="com.pronoia.test.osgi.service.Echo" timeout="2000" />
+    <!-- reference id="echo-service" interface="com.pronoia.test.osgi.service.Echo" filter="instance=one" timeout="2000" /-->
 
     <camelContext id="blueprint-context" xmlns="http://camel.apache.org/schema/blueprint">
         <route id="blueprint-route">
